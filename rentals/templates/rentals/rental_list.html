@@ -1,0 +1,34 @@
+<!-- rentals/templates/rentals/rental_list.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Список всех аренд</h2>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>User</th>
+          <th>Car</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for rental in rentals %}
+          <tr class="rental-list-item">
+            <td>{{ rental.id }}</td>
+            <td>{{ rental.user.username }}</td>
+            <td>{{ rental.car.brand }} {{ rental.car.model }}</td>
+            <td>{{ rental.start_date }}</td>
+            <td>{{ rental.end_date }}</td>
+            <td>{{ rental.status }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+<a href="{% url 'user_rentals' %}"><button>Мои аренды</button></a>
+{% endblock %}

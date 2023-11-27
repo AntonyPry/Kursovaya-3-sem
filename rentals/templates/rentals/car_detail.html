@@ -1,0 +1,18 @@
+<!-- rentals/templates/rentals/car_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Об автомобиле</h2>
+  <ul>
+    {% for car in cars %}
+      <li>
+        {{ car.brand }} {{ car.model }} ({{ car.year }})
+        <form method="post" action="{% url 'create_rental' car.id %}" style="display: inline;">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Арендовать</button>
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

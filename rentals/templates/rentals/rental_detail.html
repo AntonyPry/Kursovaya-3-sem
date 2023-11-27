@@ -1,0 +1,11 @@
+<!-- rentals/templates/rentals/rental_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Rental Details</h2>
+  <p>User: {{ rental.user.username }}</p>
+  <p>Car: {{ rental.car.brand }} {{ rental.car.model }} ({{ rental.car.year }})</p>
+  <p>Start Date: {{ rental.start_date }}</p>
+  <p>End Date: {{ rental.end_date }}</p>
+{% endblock %}

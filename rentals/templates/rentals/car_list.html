@@ -1,0 +1,39 @@
+<!-- rentals/templates/rentals/car_list.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Список автомобилей</h2>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Brand</th>
+          <th>Model</th>
+          <th>Year</th>
+          <th>Price per day</th>
+          <th>Available</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for car in cars %}
+          <tr class="car-list-item">
+            <td>{{ car.id }}</td>
+            <td>{{ car.brand }}</td>
+            <td>{{ car.model }}</td>
+            <td>{{ car.year }}</td>
+            <td>{{ car.price_per_day }}</td>
+            <td>{{ car.is_available }}</td>
+            <td>
+              <button onclick="location.href='{% url 'create_rental' car.id %}'" {% if not car.is_available %}disabled{% endif %}>Арендовать</button>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+<a href="{% url 'user_rentals' %}"><button>Мои аренды</button></a>
+{% endblock %}
+

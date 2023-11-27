@@ -1,0 +1,14 @@
+<!-- rentals/templates/rentals/create_rental.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Арендовать автомобиль{{ car.brand }} {{ car.model }}</h2>
+  <h2>Марка: {{ car.brand }}</h2>
+  <h2>Модель: {{ car.model }}</h2>
+  <h2>Дена аренды за день: {{ car.price_per_day }}</h2>
+  <form method="post" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Rent</button>
+  </form>
+{% endblock %}

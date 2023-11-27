@@ -1,0 +1,21 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'rentals/css/styles.css' %}">
+    <title>Car Rental Home</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Car Rental Service</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'car_list' %}">Cars</a></li>
+                <li><a href="{% url 'rental_list' %}">Rentals</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>
